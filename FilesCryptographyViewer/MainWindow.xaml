@@ -5,18 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilesCryptographyViewer"
         mc:Ignorable="d"
-        Title="Files Cryptography Viewer" Height="385" Width="580" AllowDrop="True" Drop="Window_Drop" KeyDown="Window_KeyDown">
+        Title="Files Cryptography Viewer" Height="385" Width="1160" AllowDrop="True" Drop="Window_Drop" KeyDown="Window_KeyDown" DragEnter="Window_DragEnter" DragLeave="Window_DragLeave">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="190"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="580"/>
+            <ColumnDefinition Width="560"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Margin="10,10,0,0">
-            <TextBlock Text="·using System.Security.Cryptography" FontFamily="Consolas" FontSize="18" Foreground="BlueViolet"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="·using System.Security.Cryptography   " FontFamily="Consolas" FontSize="18" Foreground="BlueViolet"/>
+                <CheckBox x:Name="checkBoxFile" Content="File    " IsChecked="False" Checked="checkBoxFile_Checked"/>
+                <CheckBox x:Name="checkBoxFolder" Content="Folder" IsChecked="False" Checked="checkBoxFolder_Checked"/>
+            </StackPanel>
             <Line X1="11" Y1="0" X2="346" Y2="0" Margin="0,2,0,0" Stroke="BlueViolet" StrokeThickness="2"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="10,0,0,0">
+        <StackPanel x:Name="stackPanelFile" Grid.Row="1" Margin="10,0,0,0">
             <Grid Margin="12,10,0,0" Grid.Row="1" Height="100" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="52"/>
@@ -49,6 +57,14 @@
                     <CheckBox Content="SHA1" x:Name="checkBoxSHA1" IsChecked="True" Margin="0,0,15,0"/>
                     <CheckBox Content="SHA256" x:Name="checkBoxSHA256" IsChecked="True" Margin="0,0,15,0"/>
                 </StackPanel>
+                <Button x:Name="buttonFolder" Content="Choose Folder" Click="buttonFolder_Click" Visibility="Hidden">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                            <Setter Property="BorderBrush" Value="#c1d0dc"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
         </StackPanel>
 
@@ -85,5 +101,21 @@
                 <TextBlock Text=" to clear." FontSize="12"/>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Column="1" Grid.RowSpan="3" Margin="10,10,10,0" Height="330">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Count: "/>
+                <TextBlock x:Name="filecnt"/>
+            </StackPanel>
+            <RichTextBox x:Name="folderResult" VerticalScrollBarVisibility="Visible" Height="310">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="LineHeight" Value="20"/>
+                    </Style>
+                </RichTextBox.Resources>
+            </RichTextBox>
+        </StackPanel>
+        <Rectangle x:Name="rectangle" Visibility="Hidden" HorizontalAlignment="Left" Height="304" Margin="10,0,0,0" Grid.Row="1" Stroke="BlueViolet" StrokeThickness="2" VerticalAlignment="Top" Width="561" Grid.RowSpan="2" Fill="#FFF9F9F9"/>
+        <TextBlock x:Name="textBlockShowDrop" Visibility="Hidden" HorizontalAlignment="Left" Margin="164,136,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Drop file or folder here." VerticalAlignment="Top" FontSize="18" Width="258" FontWeight="Bold"/>
     </Grid>
 </Window>

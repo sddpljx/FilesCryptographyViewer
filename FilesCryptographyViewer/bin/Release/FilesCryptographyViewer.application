@@ -4,17 +4,17 @@
   <description asmv2:publisher="Michael Liu" asmv2:product="FilesCryptographyViewer" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.7.1" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="FilesCryptographyViewer.exe.manifest" size="4604">
+    <dependentAssembly dependencyType="install" codebase="FilesCryptographyViewer.exe.manifest" size="6445">
       <assemblyIdentity name="FilesCryptographyViewer.exe" version="1.2.1903.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8mFgdeOg6LW1rUnXgjnIfBV5URZ4j4tb/3hMj6o8REM=</dsig:DigestValue>
+        <dsig:DigestValue>nyoPAI0NoHTYVI1GcNXLfjTldiw4ugPE3cPQ0vL2SDc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
